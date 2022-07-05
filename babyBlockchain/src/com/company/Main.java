@@ -26,7 +26,12 @@ public class Main {
         System.out.println("Введите сообщение:");
         String message = s.nextLine();// в сообщении должно быть столько же или больше символов чем в закрытом ключе
         acc1.signature = Signature.signData(acc1.wallet.pkCheck, message);
-        System.out.println(acc1.accountID+"'s signature: "+acc1.signature);
-
+        System.out.println(acc1.accountID + "'s signature: " + acc1.signature);
+        Operation op1 = Operation.createOperation(acc1.accountID, acc2.accountID, 1, acc1.signature);
+        System.out.println(Operation.verifyOperation(acc1.balance, acc1.signature, op1));
+        Operation op2 = Operation.createOperation(acc1.accountID, acc2.accountID, 3, acc1.signature);
+        String nonce = "nonce";
+        Operation[] ops = {op1, op2};
+        Transaction tr1 = Transaction.createTransaction(ops, nonce);
     }
 }
