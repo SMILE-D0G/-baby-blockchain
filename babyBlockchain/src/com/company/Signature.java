@@ -22,7 +22,8 @@ public class Signature {
         return signature;
     }
 
-    public static void verifySignature(String signature, int publicKey, String message) {
+    public static boolean verifySignature(String signature, int publicKey, String message) {
+        boolean isTrue = false;
         System.out.print("Verifying signature result: ");
         StringBuilder sbPrivateKey = new StringBuilder();
         StringBuilder sbSignature = new StringBuilder(signature);
@@ -34,10 +35,11 @@ public class Signature {
         sbPrivateKey.delete(length, sbPrivateKey.length());
         BigInteger privateKey = new BigInteger(String.valueOf(sbPrivateKey));
         if (publicKey == privateKey.hashCode()) {
-            System.out.println("True");
+            isTrue = true;
         } else {
-            System.out.println("False");
+            isTrue = false;
         }
+        return isTrue;
     }
 
     public static void printSignature(Signature signature) {

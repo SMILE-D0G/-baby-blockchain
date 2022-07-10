@@ -6,11 +6,11 @@ public class Operation {
     public int amount;
     public String signature;
 
-    public static Operation createOperation(int sender, int receiver, int amount, String signature) {
+    public static Operation createOperation(String sender, String receiver, int amount, String signature) {
         Operation op = new Operation();
         op.amount = amount;
-        op.receiver = receiver;
-        op.sender = sender;
+        op.receiver = Integer.valueOf(receiver);
+        op.sender = Integer.valueOf(sender);
         op.signature = signature;
         return op;
     }

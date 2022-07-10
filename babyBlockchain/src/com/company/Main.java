@@ -14,7 +14,7 @@ public class Main {
         String message = s.nextLine();// в сообщении должно быть столько же или больше символов чем в закрытом ключе
         signature.value = Signature.signData(keyPair.pkCheck, message);
         Signature.printSignature(signature);
-        Signature.verifySignature(signature.value, keyPair.publicKey, message);
+        System.out.println(Signature.verifySignature(signature.value, keyPair.publicKey, message));
         */
         Account acc1 = Account.getAccount();
         acc1.addKeyPairToWallet();
