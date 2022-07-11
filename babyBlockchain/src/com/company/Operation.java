@@ -1,16 +1,16 @@
 package com.company;
 
 public class Operation {
-    public int sender;
-    public int receiver;
+    public String sender;
+    public String receiver;
     public int amount;
     public String signature;
 
     public static Operation createOperation(String sender, String receiver, int amount, String signature) {
         Operation op = new Operation();
         op.amount = amount;
-        op.receiver = Integer.valueOf(receiver);
-        op.sender = Integer.valueOf(sender);
+        op.receiver = receiver;
+        op.sender = sender;
         op.signature = signature;
         return op;
     }
