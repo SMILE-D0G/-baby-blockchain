@@ -1,5 +1,6 @@
 package com.company;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 public class Main {
@@ -16,6 +17,7 @@ public class Main {
         Signature.printSignature(signature);
         System.out.println(Signature.verifySignature(signature.value, keyPair.publicKey, message));
         */
+
         Account acc1 = Account.getAccount();
         acc1.addKeyPairToWallet();
         acc1.updateBalance(100);
@@ -33,5 +35,16 @@ public class Main {
         String nonce = "nonce";
         Operation[] ops = {op1, op2};
         Transaction tr1 = Transaction.createTransaction(ops, nonce);
+
+        /*
+        String message = s.nextLine();
+        try {
+            message = Hash.toSHA1(message);
+        } catch (NoSuchAlgorithmException e) {
+            System.out.println("Ошибка");
+        }
+        System.out.println(message);
+        */
+        Block block = Block.createBlock("000000000000000", new Transaction[]{tr1});
     }
 }
